@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <style>
+            .bg-color {
+                background-color: #2a2a2a;
+            }
+        </style>
+    </head>
+    <body style="background-color: #191919">
+        <header
+            class="flex justify-around items-center text-white text-2xl m-6 p-2 mx-32 w-auto bg-color rounded-xl shadow-xl"
+        >
+            <div class="mx-2">
+                <a href=""> Product İnventory </a>
+            </div>
+            <div class="flex justify-center items-center mx-3">
+                <a
+                    class="hover:bg-cyan-400 rounded-xl mx-3 p-2 hover:duration-300"
+                    href="/products"
+                    >Ürünler</a
+                >
+                <a
+                    class="hover:bg-cyan-400 rounded-xl p-2 hover:duration-300"
+                    href="/productadd"
+                    >Ürün Ekle</a
+                >
+            </div>
+        </header>
+
+        <div class="flex justify-around text-white text-2xl m-6 p-2">
+            <div class="mx-2">
+                <h1>Ürün Ekleme</h1>
+            </div>
+        </div>
+        <main class="flex justify-center">
+            <form
+                enctype="multipart/form-data"
+                action="/paddtoDb"
+                method="post"
+                class="bg-color rounded-lg p-2 shadow-xl"
+            >
+                <div class="text-white text-xl flex flex-col w-96">
+                    <label class="my-2 font-medium" for="pname">Ürün adı</label>
+                    <input
+                        class="mb-2 bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        type="text"
+                        name="pname"
+                        id="pname"
+                    />
+                    <label class="my-2 font-medium" for="pstock"
+                        >Stok Sayısı</label
+                    >
+                    <input
+                        class="mb-2 bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        type="text"
+                        name="pstock"
+                        id="pstock"
+                    />
+                    <label class="my-2 font-medium" for="pdesc"
+                        >Ürün Açıklaması</label
+                    >
+                    <textarea
+                        class="mb-2 bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        name="pdesc"
+                        id="pdesc"
+                        cols="30"
+                        rows="3"
+                    ></textarea>
+
+                    <label
+                        class="block mb-2 text-xl font-medium text-gray-900 dark:text-white"
+                        for="file_input"
+                        >Ürün Resmi</label
+                    >
+                    <input
+                        class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+                        id="file_input"
+                        type="file"
+                        name="file"
+                    />
+                </div>
+                <div class="flex justify-center my-4">
+                    <button
+                        type="submit"
+                        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg shadow-xl text-base px-5 py-2.5 text-center"
+                    >
+                        Ürünü Ekle
+                    </button>
+                </div>
+
+                {% if error == "" %}
+
+                <div></div>
+
+                {% else %}
+                <div class="flex justify-center text-blue-400 text-base">
+                    <div class="items-center text-center w-72">
+                        <svg
+                            class="flex-shrink-0 inline w-4 h-4 me-2"
+                            aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                        >
+                            <path
+                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"
+                            />
+                        </svg>
+                        {{error}}
+                    </div>
+                </div>
+                {% endif %}
+            </form>
+        </main>
+    </body>
+</html>

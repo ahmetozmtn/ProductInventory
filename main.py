@@ -14,5 +14,10 @@ def products():
     return render_template("products.html", products=products)
 
 
+@app.route("/productadd")
+def productadd():
+    return render_template("productadd.html", error="")
+
+
 if __name__ == '__main__':
     app.run(debug=True)
