@@ -64,6 +64,53 @@ def deleteProduct(id):
     return redirect(url_for("products"))
 
 
+@app.route("/product/edit/<string:id>", methods=["GET", "POST"])
+def productEditing(id):
+    if request.method == "GET":
+        product = Product.query.filter_by(id=id).first()
+        return render_template("editing.html", product=product, error="")
+
+    if request.method == "POST":
+        product = Product.query.filter_by(id=id).first()
+        product_name = request.form.get("pname")
+        product_stock = request.form.get("pstock")
+        product_desc = request.form.get("pdesc")
+        product_img = request.files['file']
+        print(product_name, product_stock, product_desc, product_img)
+        if "file" not in request.files:
+            error = "Dosya seçmeniz gerek"
+            return render_template("editing.html", product=product, error=error)
+        file = request.files['file']
+        if file.filename == "":
+            error = "Dosya seçmeniz gerek"
+            return render_template("editing.html", product=product, error=error)
+
+        if file and allowed_file(file.filename):
+            filename = file.filename
+            random_name = secrets.token_hex(8)
+            file_ext = os.path.splitext(filename)[1]
+            new_filename = random_name + file_ext
+            file.save(os.path.join(
+                app.config['UPLOAD_FOLDER'], new_filename))
+            file_path = os.path.join("uploads/" + new_filename)
+            folder = "static"
+            image = product.productImg
+            image_folder = os.path.join(folder, image)
+            if os.path.exists(image_folder):
+                os.remove(image_folder)
+            if product:
+                product.productName = product_name
+                product.stockCount = product_stock
+                product.productDesc = product_desc
+                product.productImg = file_path
+                db.session.commit()
+                return redirect(url_for("products"))
+            # return redirect(url_for('products'))
+        error = "Geçersiz dosya uzantısı! Desteklenen uzantılar: png, jpg, jpeg, gif, webp"
+        return render_template("editing.html", product=product, error=error)
+        # return redirect(url_for("products"))
+
+
 @app.route("/paddtoDb", methods=["POST", "GET"])
 def productAddToDB():
     if request.method == "POST":
