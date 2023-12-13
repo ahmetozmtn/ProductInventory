@@ -35,6 +35,22 @@ def productsStockAdd(id):
     return render_template("details.html", product_detail=product_detail)
 
 
+@app.route("/productstockreduce/<string:id>")
+def productsStockreduce(id):
+    product_stockadd = Product.query.filter_by(id=id).first()
+    product_stockadd.stockCount -= 1
+    db.session.commit()
+    return redirect(url_for("products"))
+
+
+@app.route("/productstockadd/<string:id>")
+def productsStockadd(id):
+    product_stockadd = Product.query.filter_by(id=id).first()
+    product_stockadd.stockCount += 1
+    db.session.commit()
+    return redirect(url_for("products"))
+
+
 @app.route("/paddtoDb", methods=["POST", "GET"])
 def productAddToDB():
     if request.method == "POST":
