@@ -51,6 +51,19 @@ def productsStockadd(id):
     return redirect(url_for("products"))
 
 
+@app.route("/products/delete/<string:id>")
+def deleteProduct(id):
+    product = Product.query.filter_by(id=id).first()
+    folder = "static"
+    image = product.productImg
+    image_folder = os.path.join(folder, image)
+    if os.path.exists(image_folder):
+        os.remove(image_folder)
+    db.session.delete(product)
+    db.session.commit()
+    return redirect(url_for("products"))
+
+
 @app.route("/paddtoDb", methods=["POST", "GET"])
 def productAddToDB():
     if request.method == "POST":
