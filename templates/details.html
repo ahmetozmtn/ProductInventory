@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <style>
+            .bg-color {
+                background-color: #2a2a2a;
+            }
+        </style>
+    </head>
+    <body style="background-color: #191919">
+        <header
+            class="flex justify-around items-center text-white text-2xl m-6 p-2 mx-32 w-auto bg-color rounded-xl shadow-xl"
+        >
+            <div class="mx-2">
+                <a href=""> Product İnventory </a>
+            </div>
+            <div class="flex justify-center items-center mx-3">
+                <a
+                    class="hover:bg-cyan-400 rounded-xl mx-3 p-2 hover:duration-300"
+                    href="/products"
+                    >Ürünler</a
+                >
+                <a
+                    class="hover:bg-cyan-400 rounded-xl p-2 hover:duration-300"
+                    href="/productadd"
+                    >Ürün Ekle</a
+                >
+            </div>
+        </header>
+
+        <div class="flex justify-center text-white text-2xl m-8 p-2">
+            <div class="mx-2">
+                <h1>Ürün Detayları</h1>
+            </div>
+        </div>
+        <main class="flex justify-center">
+            <div
+                class="text-white text-xl rounded-xl shadow-xl w-96 h-auto bg-gradient-to-r from-blue-400 to-indigo-500"
+            >
+                <div class="flex justify-end">
+                    <a
+                        href="/product/edit/{{product_detail.id}}"
+                        class="hover:bg-cyan-400 rounded-xl mx-3 mt-1"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            x="0px"
+                            y="0px"
+                            width="45"
+                            height="45"
+                            viewBox="0 0 48 48"
+                        >
+                            <path
+                                fill="none"
+                                stroke="#000"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="3"
+                                d="M18.4,21.8L32.1,8.1c2.3-2.3,6-2.1,8.1,0.4c1.8,2.2,1.5,5.5-0.5,7.5l-2.8,2.8"
+                            ></path>
+                            <path
+                                fill="none"
+                                stroke="#000"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="3"
+                                d="M32.5,23.3L17.9,37.8c-0.4,0.4-0.8,0.6-1.3,0.8L6.5,41.5l2.9-10.1c0.1-0.5,0.4-0.9,0.8-1.3l3.7-3.7"
+                            ></path>
+                            <line
+                                x1="29.1"
+                                x2="36.9"
+                                y1="11.1"
+                                y2="18.9"
+                                fill="none"
+                                stroke="#000"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="3"
+                            ></line>
+                        </svg>
+                    </a>
+                </div>
+                <div class="flex justify-center items-center my-4">
+                    <img
+                        class="rounded-lg shadow-xl"
+                        src="{{ url_for('static', filename=product_detail.productImg) }}"
+                        alt=""
+                        width="250"
+                    />
+                </div>
+                <div class="flex flex-col justify-center my-6">
+                    <div class="text-center mb-2">
+                        {{product_detail.productName}}
+                    </div>
+                    <div class="text-center text-white opacity-90 text-base">
+                        {{product_detail.productDesc}}
+                    </div>
+                </div>
+                <div class="flex justify-evenly mb-4">
+                    <div
+                        class="rounded-xl shadow-xl py-4 px-6 text-center items-center bg-blue-700"
+                    >
+                        {% if product_detail.stockCount > 0 %}
+                        <span class="m-4">Stokta</span>
+
+                        {% else %}
+                        <span class="m-4">Tükenmiş</span>
+                        {% endif %}
+                    </div>
+                    <div class="rounded-xl shadow-xl py-4 px-6 bg-blue-700">
+                        <span class="m-4">{{product_detail.stockCount}}</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </body>
+</html>

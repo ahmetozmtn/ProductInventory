@@ -29,6 +29,12 @@ def productadd():
     return render_template("productadd.html", error="")
 
 
+@app.route("/products/<string:id>")
+def productsStockAdd(id):
+    product_detail = Product.query.filter_by(id=id).first()
+    return render_template("details.html", product_detail=product_detail)
+
+
 @app.route("/paddtoDb", methods=["POST", "GET"])
 def productAddToDB():
     if request.method == "POST":
