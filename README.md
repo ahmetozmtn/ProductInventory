@@ -1,4 +1,4 @@
-<h1 style="text-align: center;">ProductInventory</h1>
+<h1 align="center">ProductInventory</h1>
 
 ### ProductInventory, Python dilinde Flask kullanılarak geliştirilmiş bir stok kontrol uygulamasıdır. Bu uygulama, kullanıcıların ürünleri yönetmelerine, stok durumunu izlemelerine ve güncellemelerine olanak tanır.
 
