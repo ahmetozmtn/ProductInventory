@@ -60,7 +60,17 @@
             <div class="text-center p-3">Detay</div>
             <div class="text-center p-3">Ürün Sil</div>
         </div>
-        {% for item in products %}
+
+        {% if products == [] %}
+        <div class="flex justify-center">
+            <div
+                class="text-center text-white text-base w-96 mx-5 my-5 p-3 rounded-xl shadow-xl bg-color"
+            >
+                Her hangi bir ürün kaydınız bulunamadı!
+            </div>
+        </div>
+
+        {% else %} {% for item in products %}
         <div>
             <div
                 class="grid grid-cols-1 md:grid-cols-7 text-white text-xl bg-color rounded-xl shadow-xl mx-3 my-5"
@@ -187,6 +197,6 @@
                 </div>
             </div>
         </div>
-        {% endfor %}
+        {% endfor %} {% endif %}
     </body>
 </html>
