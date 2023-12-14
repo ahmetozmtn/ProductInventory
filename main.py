@@ -18,8 +18,14 @@ def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 
+def folderCheck():
+    folder = 'static/uploads'
+    os.makedirs(folder, exist_ok=True)
+
+
 @app.route("/products")
 def products():
+    folderCheck()
     products = Product.query.all()
     return render_template("products.html", products=products)
 
