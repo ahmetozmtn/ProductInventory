@@ -30,3 +30,43 @@
 -   Flask
 -   SqlAlchemy
 -   Tailwind CSS
+
+## Kurulum ve çalıştırma
+
+<br>
+
+**Projeyi klonlama**
+
+```shell
+git clone CLONE_URL
+```
+
+**Proje klasörne girin**
+
+```shell
+cd ProductInventory
+```
+
+**Gerekli bağımlılıkları yüklemek için**
+
+```shell
+pip install -r requirements.txt
+```
+
+**Projeyi çalıştırma**
+
+-   Linux & Mac OS X
+
+```shell
+python3 main.py
+```
+
+-   Windows
+
+```shell
+python main.py
+```
+
+## Kullanım
+
+Tarayıcınızın URL barına `http://127.0.0.1:5000` yazıp girmeniz yeterli.
