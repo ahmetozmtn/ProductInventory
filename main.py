@@ -23,6 +23,11 @@ def folderCheck():
     os.makedirs(folder, exist_ok=True)
 
 
+@app.route("/")
+def index():
+    return render_template("index.html")
+
+
 @app.route("/products")
 def products():
     folderCheck()

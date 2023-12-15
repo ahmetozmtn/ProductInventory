@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Ana sayfa</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <style>
+            .bg-color {
+                background-color: #2a2a2a;
+            }
+        </style>
+    </head>
+    <body style="background-color: #191919">
+        <header
+            class="flex justify-around items-center text-white text-2xl m-6 p-2 mx-32 w-auto bg-color rounded-xl shadow-xl"
+        >
+            <div class="mx-2">
+                <a href=""> Product İnventory </a>
+            </div>
+            <div class="flex justify-center items-center mx-3">
+                <a
+                    class="hover:bg-cyan-400 rounded-xl mx-3 p-2 hover:duration-300"
+                    href="/products"
+                    >Ürünler</a
+                >
+                <a
+                    class="hover:bg-cyan-400 rounded-xl p-2 hover:duration-300"
+                    href="/productadd"
+                    >Ürün Ekle</a
+                >
+            </div>
+        </header>
+
+        <main
+            class="flex justify-center bg-color rounded-xl shadow-xl h-auto w-auto text-white text-xl mx-96 mt-32 p-4"
+        >
+            <h1 class="text-center">
+                ProductInventory, Ürünlerinizin stoğunu tutmanızı sağlayan bir
+                stok kontrol uygulamasıdır. Python programlama dili ve Flask
+                framework'ü kullanılarak yazılmıştır.
+            </h1>
+        </main>
+        <div class="text-center text-white text-2xl m-10">Özellikler</div>
+        <div class="flex justify-evenly">
+            <div
+                class="p-3 bg-color rounded-2xl shadow-xl text-white text-center hover:bg-teal-900 hover:cursor-pointer"
+            >
+                Stok Durumu
+            </div>
+            <div
+                class="p-3 bg-color rounded-2xl shadow-xl text-white text-center hover:bg-teal-900 hover:cursor-pointer"
+            >
+                Stok Miktarı
+            </div>
+            <div
+                class="p-3 bg-color rounded-2xl shadow-xl text-white text-center hover:bg-teal-900 hover:cursor-pointer"
+            >
+                Kullanıcı Dostu Arayüz
+            </div>
+            <div
+                class="p-3 bg-color rounded-2xl shadow-xl text-white text-center hover:bg-teal-900 hover:cursor-pointer"
+            >
+                Stok Güncelleme
+            </div>
+            <div
+                class="p-3 bg-color rounded-2xl shadow-xl text-white text-center hover:bg-teal-900 hover:cursor-pointer"
+            >
+                Ürün Detay Sayfası
+            </div>
+        </div>
+    </body>
+</html>
