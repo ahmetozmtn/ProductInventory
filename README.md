@@ -86,3 +86,11 @@ Tarayıcınızın URL barına `http://127.0.0.1:5000` yazıp girmeniz yeterli.
 <br>
 
 ![products](/images/detail_img.png)
+
+## Katkılar
+
+Eğer projeye katkıda bulunmak isterseniz, lütfen bir Pull Requets oluşturun. Katkılarınızı bekliyoruz!
+
+## Lisans
+
+Bu proje [MIT lisansı](LICENSE) altında lisanslanmıştır.
