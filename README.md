@@ -70,3 +70,19 @@ python main.py
 ## Kullanım
 
 Tarayıcınızın URL barına `http://127.0.0.1:5000` yazıp girmeniz yeterli.
+
+<br>
+
+### Proje ile ilgili bazı görseller
+
+<br>
+
+![products](/images/products_img.png)
+
+<br>
+
+![productadd](/images/productadd_img.png)
+
+<br>
+
+![products](/images/detail_img.png)
