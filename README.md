@@ -25,6 +25,8 @@
 -   Stok Miktarı
 -   Ürün düzenleme Butonu
 
+bulunmaktadır.
+
 ### Proje de kullanılan modüller ve kütüphanler;
 
 -   Flask
