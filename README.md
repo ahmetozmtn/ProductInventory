@@ -69,11 +69,43 @@ python3 main.py
 python main.py
 ```
 
+## Docker için Kurulum Adımları
+
+**Projeyi klonlama**
+
+```shell
+git clone CLONE_URL
+```
+
+**Proje klasörne girin**
+
+```shell
+cd ProductInventory
+```
+
+**Docker image oluştuma**
+
+```shell
+ docker build -t python-app .
+```
+
+**Container'ı çalıştırma**
+
+```shell
+docker run -p 5000:5000 python-app
+```
+
 ## Kullanım
+
+**Normal kurulum için;**
 
 Tarayıcınızın URL barına `http://127.0.0.1:5000` yazıp girmeniz yeterli.
 
 <br>
+
+**Docker kurulumu için;**
+
+Tarayıcınızın URL barına `http://127.0.0.1:5000` veya `http://<local-ip-adresi>:5000` yazıp girmeniz yeterli.
 
 ### Proje ile ilgili bazı görseller
 
